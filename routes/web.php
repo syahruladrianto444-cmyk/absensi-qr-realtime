@@ -44,6 +44,9 @@ Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(fun
     Route::get('/events', [DashboardController::class, 'events'])->name('events.index');
     Route::get('/events/create', [DashboardController::class, 'createEvent'])->name('events.create');
     Route::post('/events', [DashboardController::class, 'storeEvent'])->name('events.store');
+    Route::get('/events/{event}/edit', [DashboardController::class, 'editEvent'])->name('events.edit');
+    Route::put('/events/{event}', [DashboardController::class, 'updateEvent'])->name('events.update');
+    Route::delete('/events/{event}', [DashboardController::class, 'destroyEvent'])->name('events.destroy');
     Route::get('/events/{event}', [DashboardController::class, 'showEvent'])->name('events.show');
     Route::post('/events/{event}/toggle', [DashboardController::class, 'toggleEvent'])->name('events.toggle');
 

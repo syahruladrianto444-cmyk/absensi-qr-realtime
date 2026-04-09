@@ -81,7 +81,7 @@
 @section('page-content')
 <div class="events-grid">
     @forelse($events as $event)
-        <a href="{{ route('admin.events.show', $event) }}" class="event-card glass animate-in" style="animation-delay:{{ $loop->index * 0.05 }}s">
+        <div class="event-card glass animate-in" style="animation-delay:{{ $loop->index * 0.05 }}s">
             <div class="event-header">
                 <h3 class="event-title">{{ $event->nama_event }}</h3>
                 @if($event->is_active)
@@ -99,22 +99,29 @@
                     <i class="fas fa-map-marker-alt"></i>
                     Radius {{ $event->radius }}m
                 </div>
-                @if($event->google_form_url)
-                <div class="event-meta-item">
-                    <i class="fab fa-google"></i> Google Form terhubung
-                </div>
-                @endif
             </div>
             <div class="event-footer">
                 <div>
                     <div class="hadir-count text-gradient">{{ $event->hadir_count ?? 0 }}</div>
                     <div style="font-size:12px; color:var(--text-muted);">mahasiswa hadir</div>
                 </div>
-                <span class="btn btn-outline btn-sm">
-                    <i class="fas fa-qrcode"></i> Lihat QR
-                </span>
+                <div style="display:flex; gap:8px;">
+                    <a href="{{ route('admin.events.edit', $event) }}" class="btn btn-outline btn-sm" title="Edit Event">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <form action="{{ route('admin.events.destroy', $event) }}" method="POST" onsubmit="return confirm('Hapus event beserta semua absensinya?');" style="display:inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-outline btn-sm" style="color:var(--danger);border-color:var(--danger);" title="Hapus Event">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </form>
+                    <a href="{{ route('admin.events.show', $event) }}" class="btn btn-primary btn-sm">
+                        Buka <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
             </div>
-        </a>
+        </div>
     @empty
         <div class="glass p-6 text-center" style="grid-column: 1/-1;">
             <i class="fas fa-calendar-plus" style="font-size:48px; color:var(--text-muted); margin-bottom:16px;"></i>

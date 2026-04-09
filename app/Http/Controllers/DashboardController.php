@@ -95,6 +95,51 @@ class DashboardController extends Controller
     }
 
     /**
+     * Show edit event form.
+     */
+    public function editEvent(Event $event)
+    {
+        return view('admin.events.edit', compact('event'));
+    }
+
+    /**
+     * Update event.
+     */
+    public function updateEvent(Request $request, Event $event)
+    {
+        $request->validate([
+            'nama_event' => 'required|string|max:255',
+            'latitude' => 'required|numeric',
+            'longitude' => 'required|numeric',
+            'radius' => 'required|integer|min:10|max:500',
+            'start_time' => 'required|date',
+            'end_time' => 'required|date|after:start_time',
+        ]);
+
+        $event->update([
+            'nama_event' => $request->nama_event,
+            'latitude' => $request->latitude,
+            'longitude' => $request->longitude,
+            'radius' => $request->radius,
+            'start_time' => $request->start_time,
+            'end_time' => $request->end_time,
+        ]);
+
+        return redirect()->route('admin.events.index')
+            ->with('success', 'Event berhasil diperbarui!');
+    }
+
+    /**
+     * Destroy event.
+     */
+    public function destroyEvent(Event $event)
+    {
+        $event->delete();
+        return redirect()->route('admin.events.index')
+            ->with('success', 'Event berhasil dihapus!');
+    }
+
+    /**
      * Show event detail with QR and attendance.
      */
     public function showEvent(Event $event)
