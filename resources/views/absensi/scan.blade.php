@@ -174,21 +174,6 @@
                 <span id="distanceInfo">0m dari lokasi event</span>
             </div>
 
-            @if($event->google_form_url)
-                {{-- Google Form Embed --}}
-                <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">Isi data absensi di bawah ini:</p>
-                <iframe
-                    src="{{ $event->google_form_url }}?embedded=true"
-                    class="form-embed"
-                    id="googleFormEmbed"
-                    loading="lazy">
-                    Memuat form...
-                </iframe>
-                <p style="font-size:12px;color:var(--text-muted);margin-top:10px;">
-                    <i class="fas fa-info-circle"></i>
-                    Data absensi tercatat otomatis di sistem setelah Anda submit form.
-                </p>
-            @else
                 {{-- Built-in Form --}}
                 <div class="manual-form">
                     <h3>Isi Data Absensi</h3>
@@ -205,7 +190,6 @@
                         <i class="fas fa-check-circle"></i> Kirim Absensi
                     </button>
                 </div>
-            @endif
         </div>
     </div>
 

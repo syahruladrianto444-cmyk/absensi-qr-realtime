@@ -151,7 +151,7 @@
             <a href="{{ route('admin.dashboard') }}" class="nav-item {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
                 <i class="fas fa-chart-pie"></i> Dashboard
             </a>
-            <a href="{{ route('admin.events.index') }}" class="nav-item {{ request()->routeIs('admin.events.*') ? 'active' : '' }}">
+            <a href="{{ route('admin.events.index') }}" class="nav-item {{ request()->routeIs('admin.events.index') || request()->routeIs('admin.events.show') ? 'active' : '' }}">
                 <i class="fas fa-calendar-alt"></i> Events
             </a>
             <a href="{{ route('admin.events.create') }}" class="nav-item {{ request()->routeIs('admin.events.create') ? 'active' : '' }}">

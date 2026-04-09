@@ -10,7 +10,11 @@ return new class extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->string('npm', 20)->nullable()->unique()->after('name');
+        });
+        Schema::table('users', function (Blueprint $table) {
             $table->enum('role', ['admin', 'mahasiswa'])->default('mahasiswa')->after('npm');
+        });
+        Schema::table('users', function (Blueprint $table) {
             $table->string('device_id', 128)->nullable()->after('role');
         });
     }

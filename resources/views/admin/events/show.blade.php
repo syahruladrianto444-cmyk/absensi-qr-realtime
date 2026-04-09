@@ -29,7 +29,7 @@
     background: white; border-radius: var(--radius);
     padding: 16px; margin-bottom: 16px;
 }
-.qr-wrapper svg { display: block; margin: 0 auto; }
+.qr-wrapper svg { display: block; margin: 0 auto; width: 100%; height: auto; max-width: 100%; }
 .qr-overlay {
     position: absolute; inset: 0;
     background: rgba(0,0,0,0.6);
@@ -118,12 +118,7 @@
                     <i class="fas fa-map-marker-alt" style="width:16px;margin-top:2px;color:var(--text-muted);"></i>
                     {{ $event->latitude }}, {{ $event->longitude }}
                 </div>
-                @if($event->google_form_url)
-                <div style="display:flex;gap:10px;">
-                    <i class="fab fa-google" style="width:16px;margin-top:2px;color:var(--text-muted);"></i>
-                    <a href="{{ $event->google_form_url }}" target="_blank" style="color:var(--accent-primary);">Google Form terhubung</a>
-                </div>
-                @endif
+
             </div>
         </div>
 

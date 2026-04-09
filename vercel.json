@@ -1,0 +1,34 @@
+{
+    "version": 2,
+    "builds": [
+        { "src": "api/index.php", "use": "vercel-php@0.6.2" },
+        { "src": "public/**", "use": "@vercel/static" }
+    ],
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+    "env": {
+        "APP_ENV": "production",
+        "APP_KEY": "base64:0a1JcNhckWmdx5LTZN3/SJFNKfWsViM1dO1b/2WXzXE=",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stderr",
+        "APP_STORAGE": "/tmp/storage",
+        "VIEW_COMPILED_PATH": "/tmp/storage/framework/views",
+        "SESSION_DRIVER": "cookie",
+        "CACHE_DRIVER": "array",
+        "DB_CONNECTION": "mysql",
+        "DB_HOST": "gateway01.ap-southeast-1.prod.aws.tidbcloud.com",
+        "DB_PORT": "4000",
+        "DB_DATABASE": "test",
+        "DB_USERNAME": "3HmEguLRggppLdM.root",
+        "DB_PASSWORD": "blqsgmAz95EbIjkd",
+        "QR_SECRET_KEY": "upgris-absensi-secret-2026"
+    }
+}

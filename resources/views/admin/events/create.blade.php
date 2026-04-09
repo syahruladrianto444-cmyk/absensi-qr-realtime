@@ -124,16 +124,7 @@
             </div>
         </div>
 
-        <p class="section-label">Google Form (Opsional)</p>
-        <div class="form-group">
-            <label class="form-label">URL Google Form</label>
-            <input type="url" name="google_form_url" class="form-control"
-                   value="{{ old('google_form_url', config('absensi.google_form_url')) }}"
-                   placeholder="https://docs.google.com/forms/...">
-            <small style="color:var(--text-muted);margin-top:6px;display:block;">
-                <i class="fas fa-info-circle"></i> Mahasiswa akan diarahkan ke form ini setelah validasi lokasi berhasil.
-            </small>
-        </div>
+
 
         @if($errors->any())
         <div class="alert alert-error">
@@ -181,10 +172,7 @@
                 <span class="help-icon">📍</span>
                 <span>Radius <strong>50m</strong> cocok untuk 1 ruangan. Gunakan <strong>100m</strong> untuk gedung besar.</span>
             </div>
-            <div class="help-item">
-                <span class="help-icon">📋</span>
-                <span>Google Form akan di-embed setelah mahasiswa tervalidasi lokasinya.</span>
-            </div>
+
         </div>
     </div>
 </div>
