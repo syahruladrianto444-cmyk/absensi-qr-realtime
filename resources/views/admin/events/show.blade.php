@@ -139,6 +139,7 @@
                             <th>#</th>
                             <th>Nama</th>
                             <th>NPM</th>
+                            <th>Universitas</th>
                             <th>Jarak</th>
                             <th>Status</th>
                             <th>Fraud</th>
@@ -151,6 +152,7 @@
                             <td style="color:var(--text-muted);">{{ $loop->iteration }}</td>
                             <td style="color:var(--text-primary);font-weight:500;">{{ $log->nama }}</td>
                             <td>{{ $log->npm }}</td>
+                            <td style="font-size:13px; color:var(--text-secondary);">{{ $log->universitas ?? '-' }}</td>
                             <td>{{ $log->distance }}m</td>
                             <td>
                                 @if($log->status === 'hadir')
