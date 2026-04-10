@@ -9,6 +9,7 @@ $dirs = [
     $storageDir.'/framework/testing',
     $storageDir.'/framework/views',
     $storageDir.'/logs',
+    $storageDir.'/bootstrap/cache',
 ];
 
 foreach ($dirs as $dir) {
