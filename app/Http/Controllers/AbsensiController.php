@@ -116,6 +116,7 @@ class AbsensiController extends Controller
             'token' => 'required|string',
             'nama' => 'required|string|max:255',
             'npm' => 'required|string|max:20',
+            'universitas' => 'required|string|max:150',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
         ]);
@@ -166,6 +167,7 @@ class AbsensiController extends Controller
             'event_id' => $event->id,
             'nama' => $request->nama,
             'npm' => $request->npm,
+            'universitas' => $request->universitas,
             'latitude' => $request->latitude,
             'longitude' => $request->longitude,
             'distance' => $distance,

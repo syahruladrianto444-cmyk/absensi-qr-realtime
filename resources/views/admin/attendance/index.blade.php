@@ -87,6 +87,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>NPM</th>
+                    <th>Universitas</th>
                     <th>Jarak</th>
                     <th>Status</th>
                     <th>Fraud Score</th>
@@ -100,6 +101,7 @@
                     <td style="color:var(--text-muted);">{{ $logs->firstItem() + $i }}</td>
                     <td style="color:var(--text-primary);font-weight:600;">{{ $log->nama }}</td>
                     <td style="font-family:monospace;">{{ $log->npm }}</td>
+                    <td style="font-size:13px; color:var(--text-secondary);">{{ $log->universitas ?? '-' }}</td>
                     <td>
                         <span style="color:{{ $log->distance <= $event->radius ? 'var(--success)' : 'var(--danger)' }};">
                             {{ number_format($log->distance, 1) }}m

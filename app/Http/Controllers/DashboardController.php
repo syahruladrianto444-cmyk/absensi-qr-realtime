@@ -210,13 +210,14 @@ class DashboardController extends Controller
             // BOM for Excel UTF-8
             fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
 
-            fputcsv($file, ['No', 'Nama', 'NPM', 'Waktu', 'Jarak (m)', 'Status', 'IP Address', 'Fraud Score']);
+            fputcsv($file, ['No', 'Nama', 'NPM', 'Universitas', 'Waktu', 'Jarak (m)', 'Status', 'IP Address', 'Fraud Score']);
 
             foreach ($logs as $i => $log) {
                 fputcsv($file, [
                     $i + 1,
                     $log->nama,
                     $log->npm,
+                    $log->universitas,
                     $log->created_at->format('d/m/Y H:i:s'),
                     $log->distance,
                     $log->status,

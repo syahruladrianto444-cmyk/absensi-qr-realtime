@@ -185,6 +185,10 @@
                         <label class="form-label">NPM *</label>
                         <input type="text" id="inputNpm" class="form-control" placeholder="cth: 22070140001" required>
                     </div>
+                    <div class="form-group">
+                        <label class="form-label">Universitas / Institusi *</label>
+                        <input type="text" id="inputUniv" class="form-control" placeholder="cth: Universitas PGRI Semarang" required>
+                    </div>
                     <div id="submitError" class="alert alert-error hidden"></div>
                     <button onclick="submitAttendance()" id="submitBtn" class="btn btn-success btn-lg w-full">
                         <i class="fas fa-check-circle"></i> Kirim Absensi
@@ -325,11 +329,12 @@ function retryLocation() {
 async function submitAttendance() {
     const nama = document.getElementById('inputNama')?.value.trim();
     const npm = document.getElementById('inputNpm')?.value.trim();
+    const univ = document.getElementById('inputUniv')?.value.trim();
     const errEl = document.getElementById('submitError');
     const btn = document.getElementById('submitBtn');
 
-    if(!nama || !npm) {
-        errEl.textContent = 'Nama dan NPM wajib diisi!';
+    if(!nama || !npm || !univ) {
+        errEl.textContent = 'Semua field wajib diisi (Nama, NPM, Universitas)!';
         errEl.classList.remove('hidden');
         return;
     }
@@ -349,6 +354,7 @@ async function submitAttendance() {
                 token: TOKEN,
                 nama: nama,
                 npm: npm,
+                universitas: univ,
                 latitude: userLat,
                 longitude: userLon
             })

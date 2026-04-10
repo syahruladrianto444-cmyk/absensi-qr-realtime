@@ -13,6 +13,7 @@ class AttendanceLog extends Model
         'event_id',
         'nama',
         'npm',
+        'universitas',
         'latitude',
         'longitude',
         'distance',
